@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title></title>
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .my-icon {
+        opacity: 0.8;
+        text-align: center;
+        background: #a956e6;
+        padding: 3px;
+        border-radius: 100%;
+
+        border: 1px solid #ffffff;
+        -webkit-box-shadow: 0px 0px 4px #ffffff;
+        -moz-box-shadow: 0px 0px 4px #ffffff;
+        box-shadow: 0px 0px 4px #ffffff;
+    }
+    </style>
+</head>
+
+<body>
+    <div id='map-one' class='map'> </div>
+    <script>
+    L.mapbox.accessToken = 'pk.eyJ1Ijoic3BlcmlnbyIsImEiOiJjanFkM3U2bXYwNTZkNDJzNGV6eTEwZzVvIn0.7OnNnvF1iJCdmkAt0LLIhA';
+    var mapOne = L.mapbox.map('map-one').setView([37.8, -96], 4);
+    var styleLayer = L.mapbox.styleLayer('mapbox://styles/sperigo/cjqgf5y89kv4j2rqeop2kltw3').addTo(mapOne);
+    var myLayer = L.mapbox.featureLayer().addTo(mapOne);
+
+    var geojson = [{
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.00597,
+                    40.71427
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>New York, New York</strong><p>You'll find Fashion, Real Estate, and Risk Management start-ups in New York City.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/real_estate.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.1994,
+                    38.6270
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>St. Louis, Missouri</strong><p>You'll find lots of of Health Care startups in St. Louis.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/healthcare.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.6944,
+                    41.4993
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Cleveland, Ohio</strong><p>Cleveland is an Health Care industry leader.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/healthcare.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -95.3698,
+                    29.7604
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Houston, Texas</strong><p>Houston is home to a number of Oil & Gas and Energy companies.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/gas.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.1581,
+                    39.7684
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Indianapolis, Indiana</strong><p>Indianapolis is known for its Health Care startups.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/healthcare.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.4012,
+                    43.0731
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Madison, Wisconsin</strong><p>Madison is known for the Health Care industry.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/healthcare.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.6587,
+                    45.5122
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Portland, Oregon</strong><p>Portland is home to a lot of Information Technology startups.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/it.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.6587,
+                    45.5122
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Portland, Oregon</strong><p>Portland is home to a lot of Information Technology startups.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/it.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },                                  
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -117.16472,
+                    32.71571
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>San Diego, California</strong><p>San Diego is home to a disproportionate amount of Therapeutics, Biotechnology, and Health Care start-ups.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/therapeutics.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -104.9847,
+                    39.73915
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Denver, Colorado</strong><p>Cannabis and Information Technology start-ups are common in Denver.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/cannabis.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.16379,
+                    39.95233
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Philadelphia, Pennsylvania</strong><p>Philadelphia is a leader in the Health Care industry.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/healthcare.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.38798,
+                    33.749
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Atlanta, Georgia</strong><p>Health Care start-ups are very common in Atlanta.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/healthcare.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.26384,
+                    44.97997
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Minneapolis, Minnesota</strong><p>Medical Accessories, Health Care, and Biotechnology start-ups are very common in Minneapolis.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/medical_accessories.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.41942,
+                    37.77493
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>San Francisco, California</strong><p>Autonomous Vehicles, Cloud Technologies, and Virtual Reality start-ups are very common in San Francisco.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/autonomous_vehicles.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.05977,
+                    42.35843
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Boston, Massachusetts</strong><p>Boston is home to a disproportionate amount of Therapeutics, Medical Accessories, and Biotechnology start-ups.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/therapeutics.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.65005,
+                    41.85003
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Chicago, Illinois</strong><p>Information Technology, Enterprise Software, and Health Care start-ups are very common in Chicago.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/it.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.5120,
+                    39.1031
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Cincinnati, Ohio</strong><p>The Health Care industry is thriving in Cincinnati.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/healthcare.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.33207,
+                    47.60621
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Seattle, Washington</strong><p>You'll find lots of E-Commerce, Machine Learning, and Enterprise Software start-ups in Seattle.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/ecommerce.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.74306,
+                    30.26715
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Austin, Texas</strong><p>Austin is home to a lot of Information Technology and Artificial Intelligence start-ups.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/it.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.24368,
+                    34.05223
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Los Angeles, California</strong><p>You'll find lots of Media and Entertainment, Digital Media, and Mobile start-ups in Los Angeles.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/entertainment.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.03637,
+                    38.89511
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Washington, D.C.</strong><p>Washington is home to a lot of Cyber Security start-ups.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/security.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.78444,
+                    36.16589
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Nashville, Tennessee</strong><p>Nashville is a leader in the Health Care industry.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/healthcare.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.89862,
+                    35.99403
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Durham, North Carolina</strong><p>Durham is home to a lot of Biotechnology and Health Care start-ups.</p>",
+                "icon": {
+                    "iconSize": [
+                        30,
+                        30
+                    ],
+                    "iconUrl": "images/biotech.png",
+                    "iconAnchor": [
+                        15,
+                        15
+                    ],
+                    "className": "my-icon",
+                    "popupAnchor": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        }
+    ];
+    myLayer.on('layeradd', function(e) {
+        var marker = e.layer,
+            feature = marker.feature;
+        marker.setIcon(L.icon(feature.properties.icon));
+    });
+    myLayer.setGeoJSON(geojson);
+    mapOne.scrollWheelZoom.disable();
+    </script>
+</body>
+
+</html>

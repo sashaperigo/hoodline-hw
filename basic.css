@@ -1,0 +1,121 @@
+article > * {
+    min-width: 0;
+}
+
+article > h1 {
+    font-family: Lucida Grande;
+    font-size: 2em;
+}
+
+article > h2 {
+    font-family: Lucida Grande;
+}
+
+article > .byline {
+    font-family: Lucida Grande;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+article > p {    
+    --x-height-multiplier: 0.375;
+    --baseline-multiplier: 0.17;
+    font-family: "Helvetica Neue", sans-serif;/*Georgia,Cambria,"Times New Roman",Times,serif;*/
+    letter-spacing: .01rem;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+    color: rgba(0,0,0,.84);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+article > .aside {
+    font-family: Lucida Grande;
+    margin: 30px 20px;
+    color: #666;
+    font-size: 0.8em;
+}
+
+article > p > a {
+    color: #cb99f0;
+}
+
+hr.section-divider {
+    margin-top: 52px;
+    margin-bottom: 42px;
+    display: block;
+    border: 0;
+    text-align: center;
+    overflow: visible;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+}
+
+hr.section-divider:before {
+    --x-height-multiplier: 0.342;
+    --baseline-multiplier: 0.22;
+    font-family: medium-content-slab-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 30px;
+    letter-spacing: .6em;
+    content: '...';
+    display: inline-block;
+    margin-left: .6em;
+    color: rgba(0,0,0,.68);
+    position: relative;
+    top: -30px;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+/*img {
+    width: 100%;
+}*/
+
+.line-numbers a {
+    text-decoration: none;
+    color: #000;
+    padding-right: 1em;
+}
+
+code {
+    background: #eee;
+    padding: 2px 5px;
+}
+
+pre {
+    background: #eee;
+    padding: 10px 15px;
+    overflow: auto;
+}
+
+pre > code {
+    padding: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+figure figcaption {
+    margin-top: 0.5em;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    font-size: 1em;
+}
